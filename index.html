@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provençale Propreté 84 - Nettoyage Auto & Habitation à Avignon</title>
+  <meta name="description" content="Service professionnel de nettoyage automobile et d'habitation à Avignon. Réservation en ligne, devis gratuit.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="https://provencaleproprete84.wordpress.com/wp-content/uploads/2026/01/whatsapp-image-2026-01-14-at-13.40.23-copie-3.png" alt="Provençale Propreté 84" onclick="navigateTo('home')">
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a onclick="navigateTo('home')">Accueil</a>
+        <a onclick="navigateTo('tarifs')">Tarifs</a>
+        <a onclick="navigateTo('avis')">Avis</a>
+        <a onclick="navigateTo('contact')">Contact</a>
+        <a onclick="navigateTo('reservation')" class="btn-nav">Réserver</a>
+      </div>
+      <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE ACCUEIL -->
+  <div id="home" class="page active">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Nettoyage Professionnel Auto & Habitation</h1>
+        <p>Service de qualité à Avignon et ses alentours</p>
+        <p>✨ Intérieur • Extérieur • Désinfection ✨</p>
+        <div class="hero-buttons">
+          <a onclick="navigateTo('tarifs')" class="btn-primary">Voir nos tarifs</a>
+          <a onclick="navigateTo('reservation')" class="btn-secondary">Réserver en ligne</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Nos Services</h2>
+      <p class="section-subtitle">Des prestations professionnelles adaptées à vos besoins</p>
+      
+      <div class="cards-container">
+        <div class="card" onclick="goTarifsVehicules()">
+          <img class="card-image" src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&q=80" alt="Nettoyage automobile">
+          <div class="card-content">
+            <h3>🚗 Nettoyage Véhicules</h3>
+            <p>Nettoyage intérieur, extérieur et complet. Tarifs à partir de 65€.</p>
+            <span class="card-link">Voir tous les tarifs →</span>
+          </div>
+        </div>
+        
+        <div class="card" onclick="goTarifsImmobilier()">
+          <img class="card-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Nettoyage habitation">
+          <div class="card-content">
+            <h3>🏠 Nettoyage Immobilier</h3>
+            <p>Airbnb, locations, bureaux. À partir de 35€/h.</p>
+            <span class="card-link">Voir tous les tarifs →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Pourquoi nous choisir ?</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Rapidité</h3>
+          <p>Intervention rapide et service efficace</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h3>Qualité</h3>
+          <p>Produits professionnels et finitions impeccables</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💯</div>
+          <h3>Fiabilité</h3>
+          <p>Ponctualité et engagement respecté</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💰</div>
+          <h3>Prix justes</h3>
+          <p>Tarifs transparents sans surprise</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE TARIFS -->
+  <div id="tarifs" class="page">
+    <section class="page-header">
+      <div class="page-header-content">
+        <h1>Nos Tarifs</h1>
+        <p>Transparence et qualité garantie</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <!-- PRESTATIONS VEHICULES -->
+      <div class="tarif-category" id="tarifs-vehicules">
+        <div class="category-header auto">
+          <h2>🚗 PRESTATIONS VÉHICULES</h2>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('confort')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80" alt="Nettoyage confort">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Confort</h3>
+            <div class="tarif-description">
+              <p>• Aspiration complète de l'habitacle</p>
+              <p>• Nettoyage des sièges et tapis</p>
+              <p>• Dépoussiérage tableau de bord</p>
+              <p>• Nettoyage vitres intérieures</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">65€</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('premium')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80" alt="Nettoyage premium">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Intérieur Premium</h3>
+            <div class="tarif-description">
+              <p>• Tout le nettoyage confort</p>
+              <p>• Shampouinage des sièges et tapis</p>
+              <p>• Traitement des plastiques</p>
+              <p>• Désodorisation complète</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">75€</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('complet')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=80" alt="Nettoyage complet">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Véhicule Complet</h3>
+            <div class="tarif-description">
+              <p>• Nettoyage intérieur premium</p>
+              <p>• Lavage extérieur haute pression</p>
+              <p>• Nettoyage jantes et pneus</p>
+              <p>• Lustrage carrosserie</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">95€</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('pro-auto')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1625527575307-616f0bb84ad2?w=600&q=80" alt="Nettoyage pro">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Véhicule Pro</h3>
+            <div class="tarif-description">
+              <p>• Pour garagistes, loueurs, concessionnaires</p>
+              <p>• Tarifs dégressifs dès 2 véhicules</p>
+              <p>• 2 voitures: 30€/voiture</p>
+              <p>• 10 voitures: 20€/voiture</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">Dès 20€</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRESTATIONS IMMOBILIER -->
+      <div class="tarif-category" id="tarifs-immobilier">
+        <div class="category-header immobilier">
+          <h2>🏠 PRESTATIONS IMMOBILIÈRES</h2>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('airbnb')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Nettoyage Airbnb">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Airbnb & Locations</h3>
+            <div class="tarif-description">
+              <p>• Nettoyage complet entre locataires</p>
+              <p>• Cuisine et salle de bain</p>
+              <p>• Changement du linge</p>
+              <p>• État des lieux impeccable</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">35€/h</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('bureaux')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Nettoyage bureaux">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Bureaux & Locaux</h3>
+            <div class="tarif-description">
+              <p>• Bureaux et open-spaces</p>
+              <p>• Commerces et boutiques</p>
+              <p>• Espaces communs</p>
+              <p>• Sanitaires professionnels</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">35€/h</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('menage')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&q=80" alt="Ménage régulier">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Ménage Régulier</h3>
+            <div class="tarif-description">
+              <p>• Entretien hebdomadaire ou mensuel</p>
+              <p>• Dépoussiérage et aspirateur</p>
+              <p>• Sols et surfaces</p>
+              <p>• Cuisine et sanitaires</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">35€/h</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('approfondi')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=600&q=80" alt="Nettoyage approfondi">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Approfondi</h3>
+            <div class="tarif-description">
+              <p>• Grand nettoyage de printemps</p>
+              <p>• Après travaux</p>
+              <p>• Désinfection complète</p>
+              <p>• Remise en état</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">Sur devis</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('moquette')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Nettoyage moquette">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Nettoyage Moquette & Tapis</h3>
+            <div class="tarif-description">
+              <p>• Moquette au mètre carré: 4€/m²</p>
+              <p>• Escaliers: 8€/m²</p>
+              <p>• Tapis: 15-60€ selon taille</p>
+              <p>• Matelas simple: 35€</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">Dès 4€/m²</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarif-block clickable" onclick="openReservation('vitres')">
+          <img class="tarif-image" src="https://images.unsplash.com/photo-1581578949510-fa7315c4c350?w=600&q=80" alt="Nettoyage vitres">
+          <div class="tarif-content">
+            <h3 class="tarif-title">Entretien de Vitres</h3>
+            <div class="tarif-description">
+              <p>• Nettoyage professionnel</p>
+              <p>• Vitres sans traces</p>
+              <p>• Intérieur et extérieur</p>
+              <p>• Traitement anti-pluie disponible</p>
+            </div>
+            <div class="tarif-footer">
+              <div class="tarif-price">35€/h</div>
+              <button class="btn-reserve">Réserver →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <p>💡 <strong>Devis personnalisé gratuit</strong> - Contactez-nous pour obtenir un tarif adapté à vos besoins spécifiques</p>
+      </div>
+
+      <div class="cta-section">
+        <a onclick="navigateTo('reservation')" class="btn-cta">Réserver en ligne</a>
+        <a onclick="navigateTo('contact')" class="btn-cta-secondary">Demander un devis</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE RESERVATION -->
+  <div id="reservation" class="page">
+    <section class="page-header">
+      <div class="page-header-content">
+        <h1>Réservation en ligne</h1>
+        <p>Choisissez votre créneau et réservez en quelques clics</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="reservation-container">
+        <!-- Étape 1: Choix du service -->
+        <div id="step-service" class="reservation-step active">
+          <h2>1. Choisissez votre prestation</h2>
+          <div class="service-grid">
+            <div class="service-card" onclick="selectService('confort', 'Nettoyage Confort', 65)">
+              <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=300&q=80" alt="Confort">
+              <h3>Nettoyage Confort</h3>
+              <p class="service-price">65€</p>
+            </div>
+            <div class="service-card" onclick="selectService('premium', 'Nettoyage Intérieur Premium', 75)">
+              <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=300&q=80" alt="Premium">
+              <h3>Nettoyage Premium</h3>
+              <p class="service-price">75€</p>
+            </div>
+            <div class="service-card" onclick="selectService('complet', 'Nettoyage Véhicule Complet', 95)">
+              <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=300&q=80" alt="Complet">
+              <h3>Nettoyage Complet</h3>
+              <p class="service-price">95€</p>
+            </div>
+            <div class="service-card" onclick="selectService('airbnb', 'Nettoyage Airbnb/Location', 35)">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&q=80" alt="Airbnb">
+              <h3>Airbnb/Location</h3>
+              <p class="service-price">35€/h</p>
+            </div>
+            <div class="service-card" onclick="selectService('bureaux', 'Nettoyage Bureaux', 35)">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&q=80" alt="Bureaux">
+              <h3>Bureaux/Locaux</h3>
+              <p class="service-price">35€/h</p>
+            </div>
+            <div class="service-card" onclick="selectService('autre', 'Autre prestation', 0)">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300&q=80" alt="Autre">
+              <h3>Autre prestation</h3>
+              <p class="service-price">Sur devis</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 2: Calendrier -->
+        <div id="step-calendar" class="reservation-step">
+          <h2>2. Choisissez une date</h2>
+          <div class="selected-service-info">
+            <p>Prestation sélectionnée: <strong id="selected-service-name"></strong></p>
+            <p>Tarif: <strong id="selected-service-price"></strong></p>
+          </div>
+          <div id="calendar"></div>
+          <button class="btn-back" onclick="goToStep('service')">← Retour</button>
+        </div>
+
+        <!-- Étape 3: Créneaux horaires -->
+        <div id="step-time" class="reservation-step">
+          <h2>3. Choisissez un créneau horaire</h2>
+          <div class="selected-date-info">
+            <p>Date sélectionnée: <strong id="selected-date"></strong></p>
+          </div>
+          <div id="time-slots" class="time-slots"></div>
+          <button class="btn-back" onclick="goToStep('calendar')">← Retour</button>
+        </div>
+
+        <!-- Étape 4: Informations client -->
+        <div id="step-info" class="reservation-step">
+          <h2>4. Vos informations</h2>
+          <div class="booking-summary">
+            <h3>Récapitulatif de votre réservation</h3>
+            <p>Prestation: <strong id="summary-service"></strong></p>
+            <p>Date: <strong id="summary-date"></strong></p>
+            <p>Heure: <strong id="summary-time"></strong></p>
+            <p>Prix: <strong id="summary-price"></strong></p>
+          </div>
+          
+          <form id="booking-form" class="booking-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Nom complet *" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email *" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Téléphone *" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="address" placeholder="Adresse de l'intervention *" required>
+            </div>
+            <div class="form-group">
+              <textarea name="notes" placeholder="Informations complémentaires (optionnel)"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-back" onclick="goToStep('time')">← Retour</button>
+              <button type="submit" class="btn-confirm">Confirmer la réservation</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Étape 5: Confirmation -->
+        <div id="step-confirmation" class="reservation-step">
+          <div class="confirmation-message">
+            <div class="success-icon">✓</div>
+            <h2>Réservation confirmée !</h2>
+            <p>Un email de confirmation vous a été envoyé avec tous les détails.</p>
+            <div class="confirmation-details">
+              <p><strong>Numéro de réservation:</strong> <span id="booking-number"></span></p>
+              <p><strong>Prestation:</strong> <span id="confirm-service"></span></p>
+              <p><strong>Date:</strong> <span id="confirm-date"></span></p>
+              <p><strong>Heure:</strong> <span id="confirm-time"></span></p>
+            </div>
+            <button class="btn-cta" onclick="navigateTo('home')">Retour à l'accueil</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE AVIS -->
+  <div id="avis" class="page">
+    <section class="page-header">
+      <div class="page-header-content">
+        <h1>Avis Clients</h1>
+        <p>La satisfaction de nos clients est notre priorité</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Ce que disent nos clients</h2>
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-f1e3ea05-54ed-48ea-8dfd-90e12134042c"></div>
+      
+      <div class="cta-section" style="margin-top: 60px;">
+        <h3 style="margin-bottom: 20px; color: #0A4DA3; width: 100%;">Prêt à nous faire confiance ?</h3>
+        <a onclick="navigateTo('reservation')" class="btn-cta">Réserver maintenant</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE CONTACT -->
+  <div id="contact" class="page">
+    <section class="page-header">
+      <div class="page-header-content">
+        <h1>Contact</h1>
+        <p>Demandez votre devis gratuit</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="contact-container">
+        <div class="contact-info-box">
+          <h2>Nos Coordonnées</h2>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h3>Téléphone</h3>
+              <p><a href="tel:0748148090">07 48 14 80 90</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h3>Zone d'intervention</h3>
+              <p>Avignon et alentours<br>(Vaucluse - 84)</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div>
+              <h3>Horaires</h3>
+              <p>Lundi - Samedi<br>8h00 - 19h00</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div>
+              <h3>Réponse rapide</h3>
+              <p>Devis sous 24h<br>Service personnalisé</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-box">
+          <h2>Demande de Devis Gratuit</h2>
+          <form class="contact-form" action="https://formspree.io/f/xlgggeoa" method="POST">
+            <div class="form-group">
+              <input type="text" name="Nom" placeholder="Votre nom *" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Votre email *" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="telephone" placeholder="Votre téléphone *" required>
+            </div>
+            <div class="form-group">
+              <select name="service" required>
+                <option value="">Type de service *</option>
+                <optgroup label="🚗 Prestations Véhicules">
+                  <option value="confort">Nettoyage confort - 65€</option>
+                  <option value="premium">Nettoyage intérieur premium - 75€</option>
+                  <option value="complet">Nettoyage véhicule complet - 95€</option>
+                  <option value="moquette">Nettoyage moquette/tapis</option>
+                  <option value="pro-auto">Nettoyage pour pro (garagiste)</option>
+                </optgroup>
+                <optgroup label="🏠 Prestations Immobilières">
+                  <option value="airbnb">Airbnb/Location - 35€/h</option>
+                  <option value="bureaux">Bureaux/Locaux - 35€/h</option>
+                  <option value="vitres">Entretien vitres - 35€/h</option>
+                </optgroup>
+                <option value="autre">Autre demande</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Décrivez votre besoin (surface, adresse, date souhaitée...)" required></textarea>
+            </div>
+            <button type="submit">Envoyer ma demande</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Provençale Propreté 84</h3>
+        <p>Service professionnel de nettoyage à Avignon</p>
+      </div>
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <a onclick="navigateTo('home')">Accueil</a>
+        <a onclick="navigateTo('tarifs')">Tarifs</a>
+        <a onclick="navigateTo('reservation')">Réservation</a>
+        <a onclick="navigateTo('avis')">Avis</a>
+        <a onclick="navigateTo('contact')">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📞 07 48 14 80 90</p>
+        <p>📍 Avignon (84)</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Provençale Propreté 84 - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- BOUTON RETOUR EN HAUT -->
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+  <script src="reservation.js"></script>
+</body>
+</html>
