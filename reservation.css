@@ -585,3 +585,74 @@
 }
 
 }
+/* ===============================
+   FIX MOBILE PRO
+================================ */
+@media (max-width: 768px) {
+
+  /* Pleine largeur */
+  .reservation-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 16px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Carte étape */
+  .reservation-step {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
+
+  /* Titre */
+  .reservation-step h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  /* Bloc sélection */
+  .selected-service-info {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  /* CALENDRIER */
+  #calendar {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .calendar-header {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .calendar-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .calendar-grid {
+    gap: 6px;
+  }
+
+  .calendar-day {
+    aspect-ratio: 1;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+
+  .calendar-day.selected {
+    transform: none;
+  }
+
+  /* Bouton retour */
+  .btn-back {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+}
+
