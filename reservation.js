@@ -302,7 +302,7 @@ async function sendEmailToCustomer(booking) {
       customer_address: booking.customerInfo.address,
       customer_phone: booking.customerInfo.phone,
       customer_notes: booking.customerInfo.notes || 'Aucune',
-      cancellation_link: `https://provencaleproprete84.fr/annulation?ref=${booking.number}`,
+      cancellation_link: `https://provencaleproprete84-droid.github.io/monsite/?ref=${booking.number}#annulation`,
       company_phone: '07 48 14 80 90'
     };
 
@@ -531,3 +531,4 @@ console.log('✅ Système de réservation chargé');
 console.log('📅 Créneaux réservés:', bookedSlots.length);
 
 console.log('📧 EmailJS:', typeof emailjs !== 'undefined' ? 'Chargé' : 'En attente...');
+
