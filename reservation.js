@@ -348,9 +348,9 @@ Adresse: ${booking.customerInfo.address}
 ${booking.customerInfo.notes ? `Notes:\n${booking.customerInfo.notes}\n` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔗 Lien d'annulation client:
-https://provencaleproprete84.fr/annulation?ref=${booking.number}
-    `;
+🔗 Lien d'annulation client :
+${cancellationLink}
+`;
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
@@ -361,15 +361,7 @@ https://provencaleproprete84.fr/annulation?ref=${booking.number}
       body: JSON.stringify({
         subject: `Nouvelle réservation - ${booking.number}`,
         message: emailBody,
-        _replyto: booking.customerInfo.email,
-        booking_number: booking.number,
-        customer_name: booking.customerInfo.name,
-        customer_email: booking.customerInfo.email,
-        customer_phone: booking.customerInfo.phone,
-        service: booking.serviceName,
-        date: formatDateFr(booking.date),
-        time: booking.time,
-        price: booking.price > 0 ? booking.price + '€' : 'Sur devis'
+        _replyto: booking.customerInfo.email
       })
     });
 
@@ -379,44 +371,48 @@ https://provencaleproprete84.fr/annulation?ref=${booking.number}
 
     console.log('✅ Email entreprise envoyé via Formspree');
     return response;
-    
+
   } catch (error) {
     console.error('❌ Erreur Formspree:', error);
     throw error;
   }
 }
-
 // ===== ANNULATION DE RÉSERVATION =====
 function cancelBooking(bookingNumber) {
   if (!confirm('Êtes-vous sûr de vouloir annuler cette réservation ?')) {
     return;
   }
-  
+
   let allBookings = JSON.parse(localStorage.getItem('allBookings') || '[]');
   const booking = allBookings.find(b => b.number === bookingNumber);
-  
-  if (booking) {
-    // Libérer le créneau
-    const slotKey = `${booking.date}_${booking.time}`;
-    bookedSlots = bookedSlots.filter(slot => slot !== slotKey);
-    localStorage.setItem('bookedSlots', JSON.stringify(bookedSlots));
-    
-    // Supprimer la réservation
-    allBookings = allBookings.filter(b => b.number !== bookingNumber);
-    localStorage.setItem('allBookings', JSON.stringify(allBookings));
-    
-    // Envoyer emails d'annulation
-    sendCancellationEmails(booking);
-    
-    alert('Votre réservation a bien été annulée. Un email de confirmation vous a été envoyé.');
-  } else {
+
+  if (!booking) {
+    alert('❌ Réservation introuvable.');
+    return;
+  }
+
+  // Libérer le créneau
+  const slotKey = `${booking.date}_${booking.time}`;
+  bookedSlots = bookedSlots.filter(slot => slot !== slotKey);
+  localStorage.setItem('bookedSlots', JSON.stringify(bookedSlots));
+
+  // Supprimer la réservation
+  allBookings = allBookings.filter(b => b.number !== bookingNumber);
+  localStorage.setItem('allBookings', JSON.stringify(allBookings));
+
+  // Envoyer emails d'annulation
+  sendCancellationEmails(booking);
+
+  alert('✅ Votre réservation a bien été annulée.');
+}
+ else {
     alert('Réservation introuvable.');
   }
 }
 
 // ===== ENVOI EMAILS D'ANNULATION =====
 async function sendCancellationEmails(booking) {
-  // Email au client via EmailJS
+  // Email client (EmailJS)
   try {
     if (typeof emailjs !== 'undefined') {
       const templateParams = {
@@ -431,65 +427,63 @@ async function sendCancellationEmails(booking) {
 
       await emailjs.send(
         EMAILJS_CONFIG.serviceID,
-        EMAILJS_CONFIG.templateID_cancellation,  // Utiliser le template d'annulation
+        EMAILJS_CONFIG.templateID_cancellation,
         templateParams
       );
+
       console.log('✅ Email annulation client envoyé');
     }
   } catch (error) {
-    console.error('❌ Erreur envoi email annulation client:', error);
+    console.error('❌ Erreur email annulation client:', error);
   }
 
-  // Email à l'entreprise via Formspree
+  // Email entreprise (Formspree)
   try {
     const emailBody = `
 ❌ ANNULATION DE RÉSERVATION
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Numéro: ${booking.number}
-Date d'annulation: ${new Date().toLocaleString('fr-FR')}
+Date: ${new Date().toLocaleString('fr-FR')}
 
-DÉTAILS:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Service: ${booking.serviceName}
 Date prévue: ${formatDateFr(booking.date)}
 Heure: ${booking.time}
 
 CLIENT:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Nom: ${booking.customerInfo.name}
-Email: ${booking.customerInfo.email}
-Téléphone: ${booking.customerInfo.phone}
-    `;
+${booking.customerInfo.name}
+${booking.customerInfo.email}
+${booking.customerInfo.phone}
+`;
 
     await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         subject: `Annulation réservation - ${booking.number}`,
         message: emailBody,
         _replyto: booking.customerInfo.email
       })
     });
+
     console.log('✅ Email annulation entreprise envoyé');
   } catch (error) {
-    console.error('❌ Erreur envoi email annulation entreprise:', error);
+    console.error('❌ Erreur email annulation entreprise:', error);
   }
 }
+
 
 // ===== VÉRIFIER ANNULATION DEPUIS URL =====
 window.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const bookingRef = urlParams.get('ref');
-  
-  if (bookingRef && window.location.pathname.includes('annulation')) {
-    setTimeout(() => {
-      cancelBooking(bookingRef);
-    }, 500);
+  const hash = window.location.hash;
+
+  if (bookingRef && hash === '#annulation') {
+    cancelBooking(bookingRef);
   }
 });
+
 
 // ===== NAVIGATION ENTRE ÉTAPES =====
 function goToStep(stepName) {
@@ -535,4 +529,5 @@ window.cancelBooking = cancelBooking;
 
 console.log('✅ Système de réservation chargé');
 console.log('📅 Créneaux réservés:', bookedSlots.length);
+
 console.log('📧 EmailJS:', typeof emailjs !== 'undefined' ? 'Chargé' : 'En attente...');
