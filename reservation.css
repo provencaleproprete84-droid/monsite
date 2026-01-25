@@ -553,3 +553,25 @@
     font-size: 0.95rem;
   }
 }
+
+/* =====================================
+   FIX DÉBORDEMENT MOBILE — CRITIQUE
+===================================== */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
+section,
+div,
+main,
+header,
+footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
