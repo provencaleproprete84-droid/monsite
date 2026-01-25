@@ -536,3 +536,43 @@ img {
     border-radius: 16px;
   }
 }
+/* =====================================
+   FIX CALENDRIER MOBILE — DEFINITIF
+===================================== */
+
+#calendar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.calendar-grid {
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  overflow: hidden;
+}
+
+.calendar-day,
+.calendar-day-header {
+  min-width: 0;
+  padding: clamp(6px, 1.5vw, 10px);
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  text-align: center;
+}
+
+/* mobile strict */
+@media (max-width: 480px) {
+
+  #calendar {
+    padding: 12px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    border-radius: 6px;
+  }
+}
+
