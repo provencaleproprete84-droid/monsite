@@ -348,9 +348,9 @@ Adresse: ${booking.customerInfo.address}
 ${booking.customerInfo.notes ? `Notes:\n${booking.customerInfo.notes}\n` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🔗 Lien d'annulation client :
-${cancellationLink}
-`;
+ // ✅ 1. CRÉER LE LIEN D’ANNULATION ICI
+    const cancellationLink =
+      `https://provencaleproprete84-droid.github.io/monsite/?ref=${booking.number}#annulation`;
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
@@ -531,4 +531,5 @@ console.log('✅ Système de réservation chargé');
 console.log('📅 Créneaux réservés:', bookedSlots.length);
 
 console.log('📧 EmailJS:', typeof emailjs !== 'undefined' ? 'Chargé' : 'En attente...');
+
 
