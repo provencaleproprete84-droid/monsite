@@ -444,3 +444,112 @@
     width: 100%;
   }
 }
+
+/* =============================================================================================
+   RESPONSIVE — SYSTÈME DE RÉSERVATION
+   (calendrier conservé tel quel)
+   ============================================================================================= */
+
+@media (max-width: 1024px) {
+
+  .reservation-container {
+    max-width: 95%;
+    padding: 30px;
+  }
+
+  .tarif-block.clickable {
+    gap: 15px;
+  }
+
+  .tarif-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .reservation-step h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* container */
+  .reservation-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 25px 20px;
+  }
+
+  /* cartes tarifs */
+  .tarif-block.clickable {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .tarif-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .tarif-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .btn-reserve {
+    width: 100%;
+  }
+
+  /* titres */
+  .reservation-step h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  /* services */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* créneaux */
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* formulaire */
+  .form-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-back,
+  .btn-confirm {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .reservation-container {
+    padding: 20px 15px;
+  }
+
+  .tarif-image {
+    height: 190px;
+  }
+
+  .reservation-step h2 {
+    font-size: 1.25rem;
+  }
+
+  .time-slots {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary p {
+    font-size: 0.95rem;
+  }
+}
