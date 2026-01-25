@@ -443,216 +443,96 @@
   .btn-confirm {
     width: 100%;
   }
-/* ===============================
-   RESPONSIVE COMPLET
-================================ */
+/* =====================================
+   RESPONSIVE PRO — VERSION SIMPLE
+===================================== */
 
-/* Tablettes */
-@media (max-width: 1024px) {
+/* base saine */
+* {
+  box-sizing: border-box;
+}
 
+/* container fluide */
+.reservation-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+}
+
+/* cartes propres */
+.reservation-step {
+  background: white;
+  border-radius: 20px;
+  padding: clamp(16px, 3vw, 30px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* titres adaptatifs */
+.reservation-step h2 {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  margin-bottom: 20px;
+}
+
+/* infos sélection */
+.selected-service-info,
+.selected-date-info {
+  padding: clamp(14px, 3vw, 20px);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* grilles automatiques */
+.service-grid,
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: clamp(12px, 3vw, 20px);
+}
+
+/* calendrier équilibré */
+.calendar-grid {
+  gap: clamp(5px, 2vw, 10px);
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  border-radius: 10px;
+}
+
+/* boutons fluides */
+button {
+  width: 100%;
+  max-width: 360px;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.btn-back,
+.btn-confirm {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* mini correction mobile */
+@media (max-width: 600px) {
   .reservation-container {
-    max-width: 95%;
-    padding: 30px;
-  }
-
-  .tarif-block.clickable:hover {
-    transform: none;
-  }
-
-  .btn-reserve:hover,
-  .btn-confirm:hover {
-    transform: none;
-  }
-}
-
-/* Mobiles */
-@media (max-width: 768px) {
-
-  /* Container */
-  .reservation-container {
-    padding: 20px 15px;
-    border-radius: 15px;
-  }
-
-  /* Tarifs */
-  .tarif-block.clickable {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .tarif-image {
-    width: 100%;
-    height: 180px;
-  }
-
-  .tarif-footer {
-    flex-direction: column;
-    gap: 15px;
-    align-items: stretch;
-  }
-
-  .btn-reserve {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Titres */
-  .reservation-step h2 {
-    font-size: 1.4rem;
-  }
-
-  /* Services */
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .service-card img {
-    height: 160px;
-  }
-
-  /* Calendrier */
-  #calendar {
-    padding: 15px;
-  }
-
-  .calendar-header h3 {
-    font-size: 1.2rem;
-  }
-
-  .calendar-day {
-    font-size: 0.9rem;
-  }
-
-  /* Créneaux */
-  .time-slots {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .time-slot {
-    padding: 12px 5px;
-    font-size: 0.9rem;
-  }
-
-  /* Formulaire */
-  .booking-form input,
-  .booking-form textarea {
-    padding: 12px 15px;
-    font-size: 0.95rem;
-  }
-
-  .form-actions {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .btn-back,
-  .btn-confirm {
-    width: 100%;
-  }
-
-  /* Confirmation */
-  .confirmation-message h2 {
-    font-size: 1.6rem;
-  }
-
-  .success-icon {
-    width: 80px;
-    height: 80px;
-    font-size: 3rem;
-  }
-}
-
-/* Très petits écrans (iPhone SE etc.) */
-@media (max-width: 400px) {
-
-  .calendar-day {
-    font-size: 0.8rem;
-  }
-
-  .time-slots {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card h3 {
-    font-size: 1rem;
-  }
-
-  .service-price {
-    font-size: 1.2rem;
-  }
-}
-
-}
-/* ===============================
-   FIX MOBILE PRO
-================================ */
-@media (max-width: 768px) {
-
-  /* Pleine largeur */
-  .reservation-container {
-    max-width: 100%;
     margin: 0;
-    padding: 20px 16px;
     border-radius: 0;
-    box-shadow: none;
   }
 
-  /* Carte étape */
   .reservation-step {
-    background: white;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    border-radius: 16px;
   }
-
-  /* Titre */
-  .reservation-step h2 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-  }
-
-  /* Bloc sélection */
-  .selected-service-info {
-    font-size: 0.95rem;
-    padding: 15px;
-  }
-
-  /* CALENDRIER */
-  #calendar {
-    padding: 15px;
-    border-radius: 15px;
-  }
-
-  .calendar-header {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  .calendar-header h3 {
-    font-size: 1.2rem;
-  }
-
-  .calendar-grid {
-    gap: 6px;
-  }
-
-  .calendar-day {
-    aspect-ratio: 1;
-    font-size: 0.85rem;
-    border-radius: 8px;
-  }
-
-  .calendar-day.selected {
-    transform: none;
-  }
-
-  /* Bouton retour */
-  .btn-back {
-    width: 100%;
-    margin-top: 20px;
-  }
-
 }
-
